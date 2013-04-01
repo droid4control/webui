@@ -1,0 +1,201 @@
+html, body {
+	margin:0;
+	padding:0;
+	font-family: arial,helvetica,clean,sans-serif;    
+	font-size:12px;
+	height:100%;
+}
+
+/* === scrollview styles === */
+
+#scrollview {
+//    border:1px solid #000;
+    border-top:0;
+    padding-bottom: 8px;
+}
+
+/* To layout horizontal LIs */
+#scrollview-content {
+    white-space:nowrap;
+}
+
+#scrollview-content li {
+    display:inline-block;
+    background-color:#fff;
+}
+
+/* For IE 6/7 - needs inline block hack */
+#scrollview-content li {
+    *display:inline;
+    *zoom:1;
+}
+
+/* === scrollview container and header styles === */
+
+#scrollview-container {
+    float:left;
+    margin:0 10px;
+}
+
+#scrollview-pager {
+    padding:5px;
+}
+
+/**********************************************************************/
+
+.yui3-js-enabled .yui3-scrollview-loading {
+	visibility:hidden;
+}
+body {
+	margin-top: 5px;
+//	margin-left: 10px;
+//	margin-right: 10px;
+}
+ul {
+	-webkit-margin-before: 0;
+	-webkit-margin-after: 0;
+	-webkit-padding-start: 0;
+	margin: 0;
+}
+.frame {
+	margin: 4px 0 4px 0;
+	padding: 1px;
+	border:1px solid gray;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
+	font-size:12px;
+}
+.frame2 {
+	margin: 1px;
+	padding: 1px;
+	border:1px solid gray;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
+	font-size:12px;
+	display: inline-block;
+	position: relative;
+	height: 30px;
+	width: 40px;
+}
+.frame3 {
+	margin: 1px;
+	padding: 1px;
+	border:1px solid gray;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
+	font-size:12px;
+	display: inline-block;
+}
+.noframe {
+	margin: 4px 0 4px 0;
+	padding: 3px;
+	border:0px solid gray;
+	font-size:12px;
+}
+.oc {
+	display: table;
+	table-layout: fixed;
+	height: 30px;
+	overflow: hidden;
+	width: 40px;
+	white-space:nowrap;
+}
+.oc2 {
+	display: table;
+	table-layout: fixed;
+	height: 30px;
+	overflow: hidden;
+	width: 40px;
+	white-space:nowrap;
+	position: absolute;
+}
+.oc100 {
+	display: table;
+	height: 20px;
+	overflow: hidden;
+	width: 100%;
+	white-space:nowrap;
+	font-size:18px;
+}
+.tname {
+	width: 30px;
+	font-size:18px;
+	font-weight:bold;
+}
+.paramtitle {
+	width: 180px;
+	background-color:#cccccc;
+	font-size:16px;
+}
+.paramvalue {
+	width: 180px;
+	background-color:#cccccc;
+	font-size:16px;
+}
+.paramstate {
+	width: 80px;
+	font-size:16px;
+}
+.infoframe {
+	width: 300px;
+	color: #000;
+	background-color:#cccccc;
+	font-size:16px;
+}
+.blink {
+//	background: url('blink.gif') repeat;
+}
+.ic {
+	display: table-cell;
+	vertical-align: middle;
+	width: 100%;
+	margin: 0 auto;
+	text-align: center;
+}
+.ic1 {
+	display: table-cell;
+	vertical-align: top;
+	width: 100%;
+	margin: 0 auto;
+	text-align: left;
+}
+.ic2 {
+	display: table-cell;
+	vertical-align: bottom;
+	width: 100%;
+	margin: 0 auto;
+	text-align: right;
+	font-size:18px;
+	font-weight:bold;
+	padding-right: 2px;
+}
+li {
+	display:inline-block;
+}
+
+.inner {
+	white-space:nowrap;
+}
+.status0 {
+	color: #000;
+	background-color: lightgreen;
+}
+.status1 {
+	color: #000;
+	background-color: yellow;
+}
+.status2 {
+	color: #000;
+	background-color: #f33;
+}
+.status3 {
+	color: #000;
+	background-color: #ccc;
+}
+
+.dragscroll-scrollbar-container.h {
+	bottom : -2px;
+}
