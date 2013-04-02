@@ -1,0 +1,24 @@
+Android installation:
+
+1. create directory /sdcard/sl4a/scripts/d4c
+
+2. copy following files to the new directory /sdcard/sl4a/scripts/d4c
+
+	config.py
+	jquery-1.9.1.min.js
+	jquery.browser.min.js
+	jquery.dragscroll.css
+	jquery.dragscroll.js
+	jquery.mousewheel.js
+	sql2json.py
+	sql2json.pyc
+	webserver.py
+	webui.css
+	webui.html
+	webui.js
+
+3. install SQLite databases asetup and modbus_channels to the same directory
+   or change values in config.py
+
+4. connect webserver to the http://127.0.0.1:8080/ or real IP
+
