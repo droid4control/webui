@@ -1,6 +1,6 @@
-(function() {
+var refreshPage = function() {
 		var xhr = new XMLHttpRequest();
-		xhr.open('GET', 'pacui.json', false);
+		xhr.open('GET', '/pacui.json', false);
 		xhr.send(null);
 
 		var mbstatus = eval("(" + xhr.responseText + ")");
@@ -23,7 +23,12 @@
 				newli1.innerHTML += '<div><div class="frame2" style="width: 30px;"><div class="oc tname"><div class="ic">' + rtype + '</div></div></div></div>';
 			}
 		}
-		document.getElementById('typecontainer').appendChild(newli1);
+		if (typecontainer.hasChildNodes) {
+			oldli = document.getElementById('typecontainer').childNodes[0];
+			typecontainer.replaceChild(newli1, oldli);
+		} else {
+			typecontainer.ppendChild(newli1);
+		}
 
 		// Iterate all controllers
 		for (var i = 0, lni = mbstatus.device_status.length; i < lni; i ++) {
@@ -74,18 +79,25 @@
 			document.getElementById('devcontainer').appendChild(newli);
 		}
 		// Iterate status indicators
-		var statuscontainer = document.getElementById('statuscontainer');
+		var innerHtml = '';
 		for (var i = 0, lni = mbstatus.modbusproxy_status.indicator.length; i < lni; i ++) {
 			var iname = mbstatus.modbusproxy_status.indicator[i].name;
 			var istatus = mbstatus.modbusproxy_status.indicator[i].status;
-			statuscontainer.innerHTML += '<div class="frame3"><div class="oc paramstate status' + istatus + '"><div class="ic">' + iname + '</div></div></div>' + "\n";
+			innerHtml += '<div class="frame3"><div class="oc paramstate status' + istatus + '"><div class="ic">' + iname + '</div></div></div>' + "\n";
 		}
+		document.getElementById('statuscontainer').innerHTML = innerHtml;
 		// Iterate info
-		var infocontainer = document.getElementById('infocontainer');
+		innerHtml = ''
 		for (var i = 0, lni = mbstatus.modbusproxy_status.info.length; i < lni; i ++) {
 			var iname = mbstatus.modbusproxy_status.info[i].name;
 			var ivalue = mbstatus.modbusproxy_status.info[i].value;
-			infocontainer.innerHTML += '<div class="frame3"><div class="oc infoframe"><div class="ic">' + iname + ' : ' + ivalue + '</div></div></div>' + "\n";
+			innerHtml += '<div class="frame3"><div class="oc infoframe"><div class="ic">' + iname + ' : ' + ivalue + '</div></div></div>' + "\n";
 		}
-})();
+		document.getElementById('infocontainer').innerHTML = innerHtml;
+};
 
+refreshPage();
+
+setInterval(function() {
+	refreshPage();
+}, 1000);
