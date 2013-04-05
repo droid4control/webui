@@ -24,10 +24,16 @@ var refreshPage = function() {
 			}
 		}
 		if (typecontainer.hasChildNodes) {
-			oldli = document.getElementById('typecontainer').childNodes[0];
+			oldli = typecontainer.childNodes[0];
 			typecontainer.replaceChild(newli1, oldli);
 		} else {
 			typecontainer.ppendChild(newli1);
+		}
+
+		var devcontainer = document.getElementById('devcontainer');
+		var oldlilist = [];
+		if (devcontainer.hasChildNodes) {
+			oldlilist = devcontainer.childNodes;
 		}
 
 		// Iterate all controllers
@@ -76,8 +82,15 @@ var refreshPage = function() {
 			newli.setAttribute('style', 'margin-right: 5px;');
 			newli.appendChild(div1);
 			newli.appendChild(div2);
-			document.getElementById('devcontainer').appendChild(newli);
+			if (oldlilist[i]) {
+				devcontainer.replaceChild(newli, devcontainer.childNodes[i]);
+			} else {
+				devcontainer.appendChild(newli);
+			}
 		}
+		// Remove <LI> elements that does not exist any more
+		// TODO
+
 		// Iterate status indicators
 		var innerHtml = '';
 		for (var i = 0, lni = mbstatus.modbusproxy_status.indicator.length; i < lni; i ++) {
