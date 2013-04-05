@@ -7,6 +7,7 @@ class Config:
 		self.cfg = {}
 		self.cfg['sql_db_chan'] = 'modbus_channels'
 		self.cfg['sql_db_setup'] = 'asetup'
+		self.cfg['webserver_port'] = 8080
 		try:
 			import android
 			os.chdir('/sdcard/sl4a/scripts/d4c')

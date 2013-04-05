@@ -4,8 +4,11 @@ from os import curdir, sep
 import os
 
 from sql2json import SQL2JSON
+from config import Config
 
-PORT_NUMBER = 8080
+cfg = Config()	# read config to change CWD
+
+PORT_NUMBER = cfg.get('webserver_port')
 
 #This class will handles any incoming request from
 #the browser
