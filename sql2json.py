@@ -41,7 +41,7 @@ class SQL2JSON:
 
 		cfg = Config()
 
-		conn1 = sqlite3.connect(cfg.get('sql_db_chan'))
+		conn1 = sqlite3.connect(cfg.get('sql_db_chan'), timeout=500)
 		cursor1 = conn1.cursor()
 		cursor1a = conn1.cursor()	# the second one
 
