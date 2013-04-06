@@ -113,6 +113,9 @@ class SQL2JSON:
 					chstatus['data'].append(addrstatus)
 				devstatus['channel_data'].append(chstatus)
 			mbstatus['device_status'].append(devstatus)
+		cursor1.close()
+		cursor1a.close
+		conn1.close()
 		return json.dumps(mbstatus, indent=4)	# device channel data output
 
 if __name__ == '__main__':
