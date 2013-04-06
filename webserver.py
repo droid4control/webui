@@ -3,6 +3,7 @@ from BaseHTTPServer import BaseHTTPRequestHandler,HTTPServer
 from os import curdir, sep
 import os
 
+import time
 from sql2json import SQL2JSON
 from config import Config
 
@@ -10,12 +11,19 @@ cfg = Config()	# read config to change CWD
 
 PORT_NUMBER = cfg.get('webserver_port')
 
+# global variables
+last_timestamp = 0
+last_json = ""
+
 #This class will handles any incoming request from
 #the browser
 class myHandler(BaseHTTPRequestHandler):
 
 	#Handler for the GET requests
 	def do_GET(self):
+		global last_timestamp
+		global last_json
+
 		if self.path=="/":
 			self.path="/webui.html"
 
@@ -24,8 +32,12 @@ class myHandler(BaseHTTPRequestHandler):
 				self.send_response(200)
 				self.send_header('Content-type', 'application/json')
 				self.end_headers()
-				x = SQL2JSON()
-				self.wfile.write(x.convert())
+				ts = time.time()
+				if ts > (last_timestamp + 0.9):
+						last_timestamp = ts
+						x = SQL2JSON()
+						last_json = x.convert()
+				self.wfile.write(last_json)
 				return
 
 			#Check the file extension required and
