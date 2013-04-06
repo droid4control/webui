@@ -45,9 +45,6 @@ class SQL2JSON:
 		cursor1 = conn1.cursor()
 		cursor1a = conn1.cursor()	# the second one
 
-		conn2 = sqlite3.connect(cfg.get('sql_db_setup'))
-		cursor2 = conn2.cursor()
-
 		# device related data will follow
 		mbstatus['device_status'] = []
 
